@@ -18,6 +18,7 @@ class ComposerStaticInit056d80a099e92df32677b4e347db4bda
         'M' => 
         array (
             'Model\\' => 6,
+            'MVC\\' => 4,
         ),
         'I' => 
         array (
@@ -26,6 +27,10 @@ class ComposerStaticInit056d80a099e92df32677b4e347db4bda
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
+        ),
+        'C' => 
+        array (
+            'Controllers\\' => 12,
         ),
     );
 
@@ -39,6 +44,10 @@ class ComposerStaticInit056d80a099e92df32677b4e347db4bda
         array (
             0 => __DIR__ . '/../..' . '/Models',
         ),
+        'MVC\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/',
+        ),
         'Intervention\\Image\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
@@ -46,6 +55,10 @@ class ComposerStaticInit056d80a099e92df32677b4e347db4bda
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Controllers',
         ),
     );
 

@@ -3,7 +3,7 @@
 
 define('TEMPLATES_URL', __DIR__ . '/templates');
 define('FUNCIONES_URL', __DIR__ . 'funciones.php');
-define('CARPETA_IMAGEN', __DIR__ . './../imagenes/');
+define('CARPETA_IMAGEN', $_SERVER['DOCUMENT_ROOT'] . 'imagenes/');
 
 
 function incluirTemplate(string  $nombre, bool $inicio = false)
@@ -58,4 +58,15 @@ function enviarMensaje($caso)
     }
 
     return $mensaje;
+}
+
+function ValidaroRedireccionar(String $url)
+{
+    $id = $_GET['id'] ;
+    $id = filter_var($id, FILTER_VALIDATE_INT); //VERIFICAR FORMATO DE LAS CONSULTAS
+
+    if (!$id) {
+        header("Location: {$url}");
+    }
+    return $id;
 }

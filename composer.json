@@ -12,7 +12,9 @@
   },
   "autoload": {
     "psr-4": {
-      "Model\\": "./Models"
+      "Model\\": "./Models",
+      "Controllers\\": "./Controllers",
+      "MVC\\": "./"
     }
   }
 }

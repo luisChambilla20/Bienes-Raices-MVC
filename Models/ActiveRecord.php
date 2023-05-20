@@ -45,7 +45,7 @@ class ActiveRecord
         $resultado = self::$db->query($query);
 
         if ($resultado) {
-            header('Location: ../?mensaje=2');
+            header('Location: /admin?mensaje=2');
         }
     }
 
@@ -63,7 +63,7 @@ class ActiveRecord
         $resultado = self::$db->query($query);
 
         if ($resultado) {
-            header('Location: ../?mensaje=1');
+            header('Location: /admin?mensaje=1');
         }
     }
 
@@ -76,7 +76,7 @@ class ActiveRecord
         $this->dropImage();
 
         if ($resultado) {
-            header('Location: ./?mensaje=3');
+            header('Location: /admin?mensaje=3');
         }
     }
 
@@ -156,8 +156,10 @@ class ActiveRecord
 
     public static function consultarSQL($query)
     {
+
         // Consultar la base de datos
         $resultado = self::$db->query($query);
+
 
         // Iterar los resultados
         $array = [];
@@ -170,6 +172,7 @@ class ActiveRecord
         $resultado->free();
 
         // retornar los resultados
+
         return $array;
     }
 

@@ -29,7 +29,7 @@ class Propiedad extends ActiveRecord
         $this->wc = $arg['wc'] ?? '';
         $this->estacionamiento = $arg['estacionamiento'] ?? '';
         $this->creado = date('Y/m/d');
-        $this->vendedores_id = $arg['vendedor'] ?? '';
+        $this->vendedores_id = $arg['vendedores_id'] ?? '';
     }
 
     public function validar()

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'asus/bienes-raices-php_inicio',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'a172abc6f77a455c8271e9f50f62bc36830df61b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'asus/bienes-raices-php_inicio' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'a172abc6f77a455c8271e9f50f62bc36830df61b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
