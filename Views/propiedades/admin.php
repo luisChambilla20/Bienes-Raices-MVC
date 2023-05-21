@@ -1,33 +1,6 @@
 <?php
 //USAREMOS LA SESION 
 
-
-use Model\Propiedad;
-
-
-$propiedades = Propiedad::all();
-// $vendedores = Vendedor::all();
-
-
-if ($_POST) {
-
-    $id = $_POST['id'];
-    $id = filter_var($id, FILTER_VALIDATE_INT);
-
-    //VERIFICA QUE EL TIPO SEA VALIDO Y ELIMINA SEGUN PROPIEDAD O VENDEDOR
-    if (verificarTipoEliminar($_POST['tipo'])) {
-        if ($_POST['tipo'] === "propiedad") {
-            $propiedad = Propiedad::forId($id);
-            $propiedad->eliminarBD();
-        } elseif ($_POST['tipo'] === "vendedor") {
-            // $vendedor = Vendedor::forId($id);
-            // $vendedor->eliminarBD();
-        }
-    } else {
-        // header('Location: ./');
-    }
-}
-
 ?>
 <main class="contenedor seccion">
     <h1>Administrar registros</h1>
@@ -44,14 +17,14 @@ if ($_POST) {
 
 
 
-
     <!-- -------------------------------------------------------------------- -->
     <!-- SECCION DE PROPIEDADES -->
     <!-- -------------------------------------------------------------------- -->
 
+
     <h2>Propiedades</h2>
     <a href="/propiedades/crear" class="boton boton-verde">Nueva propiedad</a>
-    <a href="/propiedades/actualizar" class="boton boton-amarillo">Registrar Vendedor(a)</a>
+    <a href="/vendedores/crear" class="boton boton-amarillo">Registrar Vendedor(a)</a>
 
     <table class="propiedades">
         <thead>
@@ -78,6 +51,40 @@ if ($_POST) {
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
                         <a href="propiedades/actualizar?id=<?php echo $propiedad->id; ?>" class="boton-amarillo-block">Actualizar</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+
+    <!-- -------------------------------------------------------------------- -->
+    <!-- SECCION DE VENDEDORES -->
+    <!-- -------------------------------------------------------------------- -->
+    <h2>Vendedores</h2>
+    <table class="propiedades">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- IMPORTAMOS LAS PROPIEDADES DE LA BD -->
+            <?php foreach ($vendedores as $vendedor) : ?>
+                <tr>
+                    <td><?php echo $vendedor->id; ?></td>
+                    <td><?php echo $vendedor->nombre . " " . $vendedor->apellido; ?></td>
+                    <td><?php echo $vendedor->telefono; ?></td>
+                    <td>
+                        <form method="POST" action="/vendedores/eliminar">
+                            <input type="hidden" name="id" value="<?php echo $vendedor->id; ?>">
+                            <input type="hidden" name="tipo" value="vendedor">
+                            <input type="submit" class="boton-rojo-block" value="Eliminar">
+                        </form>
+                        <a href="vendedores/actualizar?id=<?php echo $vendedor->id; ?>" class="boton-amarillo-block">Actualizar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

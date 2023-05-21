@@ -12,11 +12,13 @@ class PropiedadController
     public static function index(Router $router)
     {
         $propiedad = Propiedad::all();
+        $vendedor = Vendedor::all();
 
         $mensaje = $_GET['mensaje'] ?? null;
 
         $router->render('propiedades/admin', [
-            "propiedad" => $propiedad,
+            "propiedades" => $propiedad,
+            "vendedores" => $vendedor,
             "mensaje" => $mensaje
         ]);
     }
@@ -114,8 +116,8 @@ class PropiedadController
                 $propiedad = Propiedad::forId($id);
                 $propiedad->eliminarBD();
             } elseif ($_POST['tipo'] === "vendedor") {
-                // $vendedor = Vendedor::forId($id);
-                // $vendedor->eliminarBD();
+                $vendedor = Vendedor::forId($id);
+                $vendedor->eliminarBD();
             }
         } else {
             header('Location: /admin');

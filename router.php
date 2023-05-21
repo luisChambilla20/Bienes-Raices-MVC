@@ -48,11 +48,11 @@ class Router
         foreach ($arr as $key => $value) {
             $$key = $value;
         }
-
         ob_start();
         include __DIR__ . "/Views/$view.php";
 
         $contenido = ob_get_clean();
+
         include __DIR__ . "/Views/layout.php";
     }
 }
