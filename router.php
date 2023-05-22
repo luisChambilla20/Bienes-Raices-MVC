@@ -20,6 +20,10 @@ class Router
 
     public function comprobarRutas()
     {
+        session_start();
+        $auth = $_SESSION['login'] ?? null;
+        $rutasProtegidas = ['/admin', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar'];
+
         $urlActual = $_SERVER['REQUEST_URI'] ?? '/';
         if (strpos($urlActual, '?')) { // tuve que crear este if para que cuando sea un get, tome el redirect y no el request
             $urlActual = $_SERVER['REDIRECT_URL'];
@@ -34,6 +38,15 @@ class Router
         } else if ($metodo === 'POST') {
             $fn = $this->rutasPOST[$urlActual] ?? null;
         }
+
+
+
+        if (in_array($urlActual, $rutasProtegidas) && !$auth) {
+            header('Location: /');
+        }
+
+
+
 
         if ($fn) {
             // Si la URL si existe y tiene una función asociada entonces ejecuta la función
